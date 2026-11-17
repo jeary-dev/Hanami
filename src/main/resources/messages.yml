@@ -1,0 +1,108 @@
+# ──────────────────────────────────────────────────────────────────────
+#   Every message is MiniMessage: https://docs.advntr.dev/minimessage/format.html
+#   <prefix> inserts the prefix below. Set a message to '' to disable it.
+#   Missing keys fall back to the defaults, so updates never show blanks.
+# ──────────────────────────────────────────────────────────────────────
+
+prefix: '<#e8a5b4>花</#e8a5b4> <#c9a0a8>Hanami</#c9a0a8> <#6b5b60>·</#6b5b60>'
+
+profile:
+  loading: '<prefix> <#c0a0a8>Your cosmetics are still loading — try again in a moment.'
+
+command:
+  no-permission: '<prefix> <#d98c8c>You don''t have permission to do that.'
+  players-only: '<prefix> <#d98c8c>Only players can do that.'
+  invalid-syntax: '<prefix> <#c0a0a8>Usage: <#f3d1d9><syntax>'
+  invalid-argument: '<prefix> <#d98c8c><reason>'
+  unknown-cosmetic: '<prefix> <#d98c8c>There is no cosmetic called <#f3d1d9><input></#f3d1d9>.'
+  unknown-type: '<prefix> <#d98c8c>Unknown type <#f3d1d9><input></#f3d1d9>. <#c0a0a8>Try: <types>'
+  wrong-type: '<prefix> <#d98c8c><cosmetic> <#d98c8c>is not a <type>.'
+  player-not-found: '<prefix> <#d98c8c>Player <#f3d1d9><player></#f3d1d9> has never joined.'
+  error: '<prefix> <#d98c8c>Something went wrong — details are in the console.'
+
+equip:
+  success: '<prefix> <#f3d1d9>Equipped <cosmetic><#f3d1d9>.'
+  other: '<prefix> <#f3d1d9>Equipped <cosmetic> <#f3d1d9>on <player>.'
+  already: '<prefix> <#c0a0a8>You already wear <cosmetic><#c0a0a8>.'
+  locked: '<prefix> <#d98c8c>You haven''t unlocked <cosmetic> <#d98c8c>yet.'
+  cancelled: '<prefix> <#c0a0a8>You can''t equip <cosmetic> <#c0a0a8>right now.'
+
+unequip:
+  success: '<prefix> <#f3d1d9>Removed <cosmetic><#f3d1d9>.'
+  nothing: '<prefix> <#c0a0a8>You have no <type> equipped.'
+  not-equipped: '<prefix> <#c0a0a8>You aren''t wearing <cosmetic><#c0a0a8>.'
+  cancelled: '<prefix> <#c0a0a8>You can''t remove your <type> right now.'
+
+preview:
+  start: '<prefix> <#f3d1d9>Previewing <cosmetic> <#c0a0a8>for <seconds>s.'
+  start-third-person: '<prefix> <#f3d1d9>Previewing <cosmetic> <#c0a0a8>for <seconds>s — press <#f3d1d9><key:key.togglePerspective></#f3d1d9> to see it.'
+  start-projectile: '<prefix> <#f3d1d9>Previewing <cosmetic> <#c0a0a8>for <seconds>s — watch the arc, or shoot an arrow.'
+
+emote:
+  none: '<prefix> <#c0a0a8>You have no emote equipped.'
+  not-playable: '<prefix> <#c0a0a8><cosmetic> <#c0a0a8>only plays on a kill.'
+  cooldown: '<prefix> <#c0a0a8>Your emote is ready again in <#f3d1d9><seconds>s</#f3d1d9>.'
+  cancelled: '<prefix> <#c0a0a8>You can''t play an emote right now.'
+
+unlock:
+  give-success: '<prefix> <#f3d1d9>Unlocked <cosmetic> <#f3d1d9>for <player>.'
+  give-already: '<prefix> <#c0a0a8><player> already owns <cosmetic><#c0a0a8>.'
+  received: '<prefix> <#f3d1d9>You unlocked <cosmetic><#f3d1d9>! <#c0a0a8>Open <#f3d1d9>/hanami</#f3d1d9> to wear it.'
+  revoke-success: '<prefix> <#f3d1d9>Removed <cosmetic> <#f3d1d9>from <player>.'
+  revoke-missing: '<prefix> <#c0a0a8><player> doesn''t have <cosmetic> <#c0a0a8>granted.'
+  cancelled: '<prefix> <#c0a0a8>The unlock was cancelled by another plugin.'
+
+purchase:
+  success: '<prefix> <#f3d1d9>You bought <cosmetic> <#f3d1d9>for <#ffd27f><price></#ffd27f>.'
+  insufficient-funds: '<prefix> <#d98c8c>You need <#ffd27f><price></#ffd27f> <#d98c8c>— you have <#ffd27f><balance></#ffd27f>.'
+  unavailable: '<prefix> <#d98c8c>Purchases are unavailable right now.'
+  failed: '<prefix> <#d98c8c>The payment could not be completed: <reason>'
+
+settings:
+  show-others-on: '<prefix> <#f3d1d9>You now see other players'' cosmetics.'
+  show-others-off: '<prefix> <#c0a0a8>Other players'' cosmetics are now hidden for you.'
+  density: '<prefix> <#f3d1d9>Particle density set to <#ffd1dc><level></#ffd1dc>.'
+
+reload:
+  success: '<prefix> <#f3d1d9>Reloaded <#ffd1dc><count></#ffd1dc> cosmetics in <ms> ms.'
+  failed: '<prefix> <#d98c8c>Reload refused — <count> problem(s). Nothing was changed:'
+  problem: '  <#6b5b60>›</#6b5b60> <#c0a0a8><problem>'
+
+debug:
+  header: '<prefix> <#f3d1d9>Performance <#6b5b60>(last <samples> frames)'
+  line: '  <#6b5b60>›</#6b5b60> <#c9a0a8><label>:</#c9a0a8> <#f3d1d9><value>'
+
+help:
+  - '<prefix> <#f3d1d9>Commands'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami</#ffd1dc> <#c0a0a8>— open the cosmetics menu'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami equip \<type> \<id></#ffd1dc> <#c0a0a8>— wear a cosmetic'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami unequip \<type></#ffd1dc> <#c0a0a8>— take one off'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami preview \<id></#ffd1dc> <#c0a0a8>— try one for 5 seconds'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami emote</#ffd1dc> <#c0a0a8>— play your emote'
+  - '  <#6b5b60>›</#6b5b60> <#ffd1dc>/hanami admin</#ffd1dc> <#c0a0a8>— manage players and create cosmetics (admins)'
+
+admin:
+  prompt-hint: '<#6b5b60>Type your answer in chat, or <#f3d1d9>cancel</#f3d1d9>. You have <seconds>s.'
+  prompt-timeout: '<prefix> <#c0a0a8>No answer — the question was cancelled.'
+  prompt-cancelled: '<prefix> <#c0a0a8>Cancelled.'
+  ask-id: '<prefix> <#f3d1d9>Type an id for the cosmetic <#c0a0a8>(lowercase letters, digits, _ and -, e.g. <#ffd1dc>moon_ring</#ffd1dc>).'
+  ask-name: '<prefix> <#f3d1d9>Type the display name. <#c0a0a8>Colours work, e.g. <#ffd1dc>\<gradient:#ffb7c5:#ffffff>Moon Ring\</gradient></#ffd1dc>'
+  ask-lore: '<prefix> <#f3d1d9>Type a one-line description for the menu.'
+  ask-text: '<prefix> <#f3d1d9>Type the text to draw <#c0a0a8>(up to 12 characters — kanji like 花 or 月 work great).'
+  ask-price: '<prefix> <#f3d1d9>Type the price <#c0a0a8>(a number, e.g. <#ffd1dc>2500</#ffd1dc>).'
+  ask-color: '<prefix> <#f3d1d9>Type a hex colour <#c0a0a8>(e.g. <#ffd1dc>#ffb7c5</#ffd1dc>).'
+  ask-particle: '<prefix> <#f3d1d9>Type a particle name <#c0a0a8>(e.g. <#ffd1dc>end_rod</#ffd1dc>, <#ffd1dc>soul_fire_flame</#ffd1dc>).'
+  invalid-id: '<prefix> <#d98c8c><#f3d1d9><input></#f3d1d9> isn''t a valid id — use lowercase letters, digits, _ and -.'
+  id-taken: '<prefix> <#d98c8c>A cosmetic called <#f3d1d9><input></#f3d1d9> already exists — pick another id.'
+  invalid-number: '<prefix> <#d98c8c><#f3d1d9><input></#f3d1d9> isn''t a number.'
+  invalid-color: '<prefix> <#d98c8c><#f3d1d9><input></#f3d1d9> isn''t a hex colour like #ffb7c5.'
+  invalid-particle: '<prefix> <#d98c8c>There is no particle called <#f3d1d9><input></#f3d1d9> on this server.'
+  particle-needs-data: '<prefix> <#d98c8c><input> needs extra data — use the colour styles instead, or add it to cosmetics.yml by hand.'
+  preview: '<prefix> <#f3d1d9>Previewing <cosmetic> <#c0a0a8>for <seconds>s — press <#f3d1d9><key:key.togglePerspective></#f3d1d9> to see it. The creator reopens afterwards.'
+  draft-invalid: '<prefix> <#d98c8c>The cosmetic has <count> problem(s):'
+  saved: '<prefix> <#a8e6a1>Saved <cosmetic> <#a8e6a1>to cosmetics.yml and reloaded — it''s in the menu now. <#c0a0a8>Give it with <#ffd1dc>/hanami give \<player> <id></#ffd1dc>.'
+  saved-reload-failed: '<prefix> <#ffd27f>Saved <cosmetic> <#ffd27f>to cosmetics.yml, but the reload was refused. Fix these and run <#f3d1d9>/hanami reload</#f3d1d9>:'
+  save-failed: '<prefix> <#d98c8c>Could not save: <reason>'
+  discarded: '<prefix> <#c0a0a8>Draft discarded.'
+  player-offline: '<prefix> <#c0a0a8><player> is no longer online.'
+  unequipped-other: '<prefix> <#f3d1d9>Took <cosmetic> <#f3d1d9>off <player>.'

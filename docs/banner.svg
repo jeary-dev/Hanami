@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 340" width="1280" height="340" role="img" aria-label="花見 Hanami — elegant particle cosmetics for Minecraft">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8f9"/>
+      <stop offset="0.55" stop-color="#fdeef1"/>
+      <stop offset="1" stop-color="#f8dce3"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="petalFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd3dd"/>
+      <stop offset="1" stop-color="#f4a6b8"/>
+    </linearGradient>
+    <!-- a single sakura petal, notched at the tip -->
+    <path id="petal" d="M0 0 C -9 -10 -10 -26 -4 -34 L 0 -30 L 4 -34 C 10 -26 9 -10 0 0 Z" fill="url(#petalFill)"/>
+    <g id="flower">
+      <use xlink:href="#petal"/>
+      <use xlink:href="#petal" transform="rotate(72)"/>
+      <use xlink:href="#petal" transform="rotate(144)"/>
+      <use xlink:href="#petal" transform="rotate(216)"/>
+      <use xlink:href="#petal" transform="rotate(288)"/>
+      <circle r="4.5" fill="#d9617a"/>
+      <circle r="2" fill="#f7d06b"/>
+    </g>
+  </defs>
+
+  <rect width="1280" height="340" fill="url(#sky)"/>
+  <ellipse cx="640" cy="170" rx="420" ry="150" fill="url(#glow)"/>
+
+  <!-- branch -->
+  <g fill="none" stroke="#4a3a3e" stroke-linecap="round">
+    <path d="M1290 40 C 1180 70 1110 60 1040 110 C 990 145 960 150 900 160" stroke-width="9"/>
+    <path d="M1105 75 C 1090 40 1060 25 1030 22" stroke-width="5"/>
+    <path d="M1010 128 C 1000 170 975 195 945 210" stroke-width="4.5"/>
+    <path d="M960 152 C 930 130 905 125 880 128" stroke-width="3.5"/>
+    <path d="M-10 300 C 60 280 110 290 170 255 C 210 232 240 228 280 230" stroke-width="7"/>
+    <path d="M120 282 C 130 310 150 325 175 330" stroke-width="3.5"/>
+  </g>
+
+  <!-- blossoms on the branches -->
+  <use xlink:href="#flower" transform="translate(1040 108) scale(1.15) rotate(12)"/>
+  <use xlink:href="#flower" transform="translate(1030 24) scale(0.85) rotate(-20)"/>
+  <use xlink:href="#flower" transform="translate(945 210) scale(0.95) rotate(30)"/>
+  <use xlink:href="#flower" transform="translate(900 160) scale(0.8) rotate(5)"/>
+  <use xlink:href="#flower" transform="translate(1150 62) scale(0.7) rotate(40)"/>
+  <use xlink:href="#flower" transform="translate(880 128) scale(0.6) rotate(-35)"/>
+  <use xlink:href="#flower" transform="translate(170 255) scale(1.0) rotate(18)"/>
+  <use xlink:href="#flower" transform="translate(280 230) scale(0.75) rotate(-12)"/>
+  <use xlink:href="#flower" transform="translate(175 330) scale(0.6) rotate(50)"/>
+
+  <!-- drifting petals -->
+  <g opacity="0.85">
+    <use xlink:href="#petal" transform="translate(820 230) scale(0.55) rotate(130)"/>
+    <use xlink:href="#petal" transform="translate(760 290) scale(0.45) rotate(200)"/>
+    <use xlink:href="#petal" transform="translate(860 300) scale(0.5) rotate(75)"/>
+    <use xlink:href="#petal" transform="translate(360 70) scale(0.5) rotate(-60)"/>
+    <use xlink:href="#petal" transform="translate(300 140) scale(0.4) rotate(160)"/>
+    <use xlink:href="#petal" transform="translate(1210 210) scale(0.5) rotate(95)"/>
+    <use xlink:href="#petal" transform="translate(1120 280) scale(0.42) rotate(-140)"/>
+    <use xlink:href="#petal" transform="translate(420 300) scale(0.38) rotate(30)"/>
+    <use xlink:href="#petal" transform="translate(100 120) scale(0.45) rotate(250)"/>
+    <use xlink:href="#petal" transform="translate(700 50) scale(0.35) rotate(-100)"/>
+  </g>
+
+  <!-- title -->
+  <g text-anchor="middle">
+    <text x="640" y="168" font-family="'Hiragino Mincho ProN','Yu Mincho','Noto Serif CJK JP','Noto Serif JP',serif" font-size="104" fill="#b8485f" letter-spacing="18">花見</text>
+    <text x="640" y="222" font-family="'Cormorant Garamond','Palatino Linotype',Georgia,serif" font-size="40" fill="#5a4a4f" letter-spacing="16">HANAMI</text>
+    <line x1="560" y1="246" x2="720" y2="246" stroke="#d9a3b0" stroke-width="1.5"/>
+    <text x="640" y="278" font-family="'Cormorant Garamond','Palatino Linotype',Georgia,serif" font-style="italic" font-size="22" fill="#8a7a7f">elegant, data-driven particle cosmetics for Spigot &amp; Paper</text>
+  </g>
+</svg>

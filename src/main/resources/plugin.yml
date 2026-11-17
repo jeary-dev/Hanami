@@ -1,0 +1,75 @@
+name: Hanami
+version: '${project.version}'
+main: dev.jeary.hanami.HanamiPlugin
+api-version: '1.20'
+description: '${project.description}'
+author: jeary-dev
+website: '${project.url}'
+softdepend: [Vault, PlaceholderAPI, Essentials, SuperVanish, PremiumVanish]
+
+# Downloaded by the server on first start instead of being shaded into the jar.
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:${kotlin.version}
+  - org.xerial:sqlite-jdbc:${sqlite.version}
+  - com.mysql:mysql-connector-j:${mysql.version}
+
+# Commands are registered at runtime by Incendo Cloud.
+
+permissions:
+  hanami.player:
+    description: Everything a regular player needs.
+    default: true
+    children:
+      hanami.command.menu: true
+      hanami.command.equip: true
+      hanami.command.preview: true
+      hanami.command.emote: true
+  hanami.admin:
+    description: All Hanami commands and every cosmetic.
+    default: op
+    children:
+      hanami.player: true
+      hanami.command.equip.others: true
+      hanami.command.give: true
+      hanami.command.revoke: true
+      hanami.command.reload: true
+      hanami.command.debug: true
+      hanami.command.admin: true
+      hanami.command.create: true
+      hanami.cosmetic.*: true
+  hanami.command.menu:
+    description: Open the cosmetics menu with /hanami.
+    default: true
+  hanami.command.equip:
+    description: Equip and unequip your own cosmetics.
+    default: true
+  hanami.command.equip.others:
+    description: Equip a cosmetic on another player (bypasses unlocks).
+    default: op
+  hanami.command.preview:
+    description: Preview any cosmetic for a few seconds.
+    default: true
+  hanami.command.emote:
+    description: Play your equipped emote with /hanami emote.
+    default: true
+  hanami.command.give:
+    description: Permanently unlock a cosmetic for a player.
+    default: op
+  hanami.command.revoke:
+    description: Remove a granted cosmetic from a player.
+    default: op
+  hanami.command.reload:
+    description: Reload and validate every config file.
+    default: op
+  hanami.command.debug:
+    description: Show tick cost and particle statistics.
+    default: op
+  hanami.command.admin:
+    description: Open the admin menu with /hanami admin (managing players needs give/revoke/equip.others too).
+    default: op
+  hanami.command.create:
+    description: Design new cosmetics in the in-game creator and save them to cosmetics.yml.
+    default: op
+  hanami.cosmetic.*:
+    description: Unlocks every cosmetic.
+    default: op

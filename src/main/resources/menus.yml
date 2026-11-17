@@ -1,0 +1,223 @@
+# ──────────────────────────────────────────────────────────────────────
+#   Menus are drawn as character grids — one 9-character string per row.
+#   Each character maps to an entry under `items`.
+#
+#     #  the shared filler item          (space)  an empty slot
+#     content-char  slots filled with cosmetics (paginated)
+#
+#   Actions: open-category:<trail|aura|wings|projectile|emote>, open-settings,
+#            open-main, close, previous-page, next-page, unequip-category,
+#            toggle-show-others, cycle-density, confirm, cancel, none
+#
+#   Names and lore are MiniMessage. Available placeholders are listed per menu.
+# ──────────────────────────────────────────────────────────────────────
+
+# Sound played on every button click (a Minecraft sound key), or '' for silence.
+click-sound: 'block.amethyst_block.chime'
+
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+
+# Display names of the categories, used in titles and messages.
+category-names:
+  trail: 'Trails'
+  aura: 'Auras'
+  wings: 'Wings'
+  projectile: 'Projectile Trails'
+  emote: 'Emotes'
+
+# ── Main menu ─────────────────────────────────────────────────────────
+# Placeholders in category items: <equipped> (name of the worn cosmetic or "None"),
+# <unlocked> and <total> (cosmetics of that category).
+main:
+  title: '<#b8485f>花見</#b8485f> <#3d3437>· Hanami'
+  layout:
+    - 'pp#####pp'
+    - 'p#t#a#w#p'
+    - '##r###e##'
+    - 'p#######p'
+    - 'pp##x##sp'
+  items:
+    p:
+      material: PINK_STAINED_GLASS_PANE
+      name: ' '
+      action: none
+    t:
+      material: PINK_PETALS
+      name: '<gradient:#ffb7c5:#e8a5b4>Trails'
+      lore:
+        - '<#9c8a8f>Petals and embers that follow your steps.'
+        - ''
+        - '<#c9a0a8>Wearing: <#f3d1d9><equipped>'
+        - '<#c9a0a8>Unlocked: <#f3d1d9><unlocked>/<total>'
+      action: open-category:trail
+    a:
+      material: SPORE_BLOSSOM
+      name: '<gradient:#ffd1dc:#c9a0e8>Auras'
+      lore:
+        - '<#9c8a8f>A quiet presence while you stand still.'
+        - ''
+        - '<#c9a0a8>Wearing: <#f3d1d9><equipped>'
+        - '<#c9a0a8>Unlocked: <#f3d1d9><unlocked>/<total>'
+      action: open-category:aura
+    w:
+      material: FEATHER
+      name: '<gradient:#fff5ee:#ffb7c5>Wings'
+      lore:
+        - '<#9c8a8f>Drawn in light, beating slowly.'
+        - ''
+        - '<#c9a0a8>Wearing: <#f3d1d9><equipped>'
+        - '<#c9a0a8>Unlocked: <#f3d1d9><unlocked>/<total>'
+      action: open-category:wings
+    r:
+      material: ARROW
+      name: '<gradient:#ffb7c5:#8fb8de>Projectile Trails'
+      lore:
+        - '<#9c8a8f>Leave a brushstroke across the sky.'
+        - ''
+        - '<#c9a0a8>Wearing: <#f3d1d9><equipped>'
+        - '<#c9a0a8>Unlocked: <#f3d1d9><unlocked>/<total>'
+      action: open-category:projectile
+    e:
+      material: FIREWORK_STAR
+      name: '<gradient:#f2c14e:#d9381e>Emotes'
+      lore:
+        - '<#9c8a8f>One perfect moment, on a kill or on command.'
+        - ''
+        - '<#c9a0a8>Wearing: <#f3d1d9><equipped>'
+        - '<#c9a0a8>Unlocked: <#f3d1d9><unlocked>/<total>'
+      action: open-category:emote
+    s:
+      material: COMPARATOR
+      name: '<#e8d5d9>Settings'
+      lore:
+        - '<#9c8a8f>Visibility and particle density.'
+      action: open-settings
+    x:
+      material: BARRIER
+      name: '<#d98c8c>Close'
+      action: close
+
+# ── Category menu ─────────────────────────────────────────────────────
+# Title placeholders: <category>, <page>, <pages>.
+# Cosmetic items show the cosmetic's own name/lore, followed by one of the
+# `cosmetic-lore` blocks below. Placeholder: <price>.
+category:
+  title: '<#b8485f>花</#b8485f> <#3d3437><category> <#8a7a7f>(<page>/<pages>)'
+  content-char: c
+  layout:
+    - 'pp#####pp'
+    - '#ccccccc#'
+    - '#ccccccc#'
+    - '#ccccccc#'
+    - 'p#######p'
+    - '<#b#u#x#>'
+  items:
+    p:
+      material: PINK_STAINED_GLASS_PANE
+      name: ' '
+      action: none
+    '<':
+      material: SPECTRAL_ARROW
+      name: '<#f3d1d9>← Previous page'
+      action: previous-page
+    '>':
+      material: SPECTRAL_ARROW
+      name: '<#f3d1d9>Next page →'
+      action: next-page
+    b:
+      material: CHERRY_SIGN
+      name: '<#f3d1d9>Back'
+      action: open-main
+    u:
+      material: BRUSH
+      name: '<#e8d5d9>Take off'
+      lore:
+        - '<#9c8a8f>Remove the <category> you''re wearing.'
+      action: unequip-category
+    x:
+      material: BARRIER
+      name: '<#d98c8c>Close'
+      action: close
+  cosmetic-lore:
+    equipped:
+      - ''
+      - '<#9fd8a8>✔ Wearing'
+      - '<#8a7a7f>Left-click <#c0a0a8>to take off'
+      - '<#8a7a7f>Right-click <#c0a0a8>to preview'
+    unlocked:
+      - ''
+      - '<#f3d1d9>✿ Unlocked'
+      - '<#8a7a7f>Left-click <#c0a0a8>to wear'
+      - '<#8a7a7f>Right-click <#c0a0a8>to preview'
+    purchasable:
+      - ''
+      - '<#ffd27f>✦ <price>'
+      - '<#8a7a7f>Left-click <#c0a0a8>to buy'
+      - '<#8a7a7f>Right-click <#c0a0a8>to preview'
+    locked:
+      - ''
+      - '<#8a7a7f>✕ Locked'
+      - '<#8a7a7f>Right-click <#c0a0a8>to preview'
+
+# ── Settings ──────────────────────────────────────────────────────────
+# Placeholders: <state> (On/Off), <level> (Low/Medium/High).
+settings:
+  title: '<#b8485f>花</#b8485f> <#3d3437>Settings'
+  layout:
+    - 'pp#####pp'
+    - '##o###d##'
+    - 'pp##b##pp'
+  items:
+    p:
+      material: PINK_STAINED_GLASS_PANE
+      name: ' '
+      action: none
+    o:
+      material: ENDER_EYE
+      name: '<#f3d1d9>Other players'' cosmetics: <#ffd1dc><state>'
+      lore:
+        - '<#9c8a8f>Hide everyone else''s cosmetics'
+        - '<#9c8a8f>without affecting what they see.'
+        - ''
+        - '<#8a7a7f>Click <#c0a0a8>to toggle'
+      action: toggle-show-others
+    d:
+      material: AMETHYST_SHARD
+      name: '<#f3d1d9>Particle density: <#ffd1dc><level>'
+      lore:
+        - '<#9c8a8f>Lower density if particles'
+        - '<#9c8a8f>slow down your game.'
+        - ''
+        - '<#8a7a7f>Click <#c0a0a8>to cycle Low → Medium → High'
+      action: cycle-density
+    b:
+      material: CHERRY_SIGN
+      name: '<#f3d1d9>Back'
+      action: open-main
+
+# ── Purchase confirmation ─────────────────────────────────────────────
+# The content slot shows the cosmetic. Placeholders: <cosmetic>, <price>, <balance>.
+confirm:
+  title: '<#b8485f>花</#b8485f> <#3d3437>Buy <cosmetic>?'
+  content-char: i
+  layout:
+    - 'pp#####pp'
+    - '##y#i#n##'
+    - 'pp#####pp'
+  items:
+    p:
+      material: PINK_STAINED_GLASS_PANE
+      name: ' '
+      action: none
+    y:
+      material: LIME_STAINED_GLASS_PANE
+      name: '<#9fd8a8>Buy for <#ffd27f><price>'
+      lore:
+        - '<#9c8a8f>Your balance: <#ffd27f><balance>'
+      action: confirm
+    n:
+      material: RED_STAINED_GLASS_PANE
+      name: '<#d98c8c>Cancel'
+      action: cancel

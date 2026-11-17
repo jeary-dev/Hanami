@@ -1,0 +1,70 @@
+# ──────────────────────────────────────────────────────────────────────
+#   花見  Hanami — main configuration
+#   Every value is validated on load and on /hanami reload. Mistakes are
+#   reported as "config.yml → path: problem" and the reload is refused, so a
+#   typo can never break a running server.
+# ──────────────────────────────────────────────────────────────────────
+
+storage:
+  # json   — (default) one readable file per player in plugins/Hanami/<folder>/. No setup.
+  # sqlite — a single local database file. Better once you have thousands of players.
+  # mysql  — a shared database, for networks that sync cosmetics across servers.
+  # Switching backends needs a restart and does not copy existing data across.
+  type: json
+  json:
+    folder: players
+  sqlite:
+    file: data.db
+  mysql:
+    host: localhost
+    port: 3306
+    database: hanami
+    username: root
+    password: ''
+    pool-size: 6
+    # Extra JDBC properties appended to the connection URL.
+    properties:
+      useSSL: 'false'
+      characterEncoding: utf8
+  # Dirty profiles are also saved every N minutes (and always on quit).
+  autosave-minutes: 5
+
+rendering:
+  # Ticks between cosmetic frames. 1 = every tick (smoothest), 2 halves the cost.
+  update-interval: 1
+  # Players further than this (in blocks) from a cosmetic don't receive its particles.
+  # On Paper, viewers must also be within the server's entity-tracking range of the wearer.
+  view-distance: 48
+  particle-budget:
+    # Max particle points one player may produce per frame across all their cosmetics.
+    per-player: 200
+    # Max particle sends (points × viewers) for the whole server per frame.
+    global: 6000
+  # Run the shape maths on Hanami's own thread. Particles are always sent from the main thread.
+  async-compute: true
+
+visibility:
+  # Hide a player's cosmetics shortly after PvP damage (dealt or taken).
+  hide-in-combat: true
+  combat-seconds: 10
+  hide-invisible: true
+  hide-spectators: true
+  # Detects Essentials, SuperVanish, PremiumVanish and any plugin using "vanished" metadata.
+  hide-vanished: true
+  # Worlds where cosmetics are never drawn (case-insensitive).
+  world-blacklist:
+    - example_minigame_world
+
+player-defaults:
+  # Whether new players see other players' cosmetics.
+  show-others: true
+  # low / medium / high — how many particles new players see.
+  density: high
+
+emotes:
+  # Play the killer's equipped emote (if it has the "kill" trigger) where a player dies.
+  on-player-kill: true
+  on-mob-kill: false
+
+# Anonymous usage statistics through bStats (https://bstats.org).
+metrics: true
